@@ -140,7 +140,6 @@ end
 # Sors-moi une répartition des handle par taille de ces derniers 
 # (nombre de handle avec 1 caractère, nombre de handle avec 2 caractères, nombre de handle avec 3 caractères, etc)
 
-
 def count_length(list_of_journalists, given_size) # --------- méthode permettant de calculer le nombre d'éléments d'une liste ayant une longueur donnée
 
 	count_given_size = 0
@@ -176,22 +175,6 @@ def repartition(list_of_journalists)
 end
 
 
-#	count = 0
-#	list_of_journalists.each do |handle|
-#		if handle.length == size_of_longest
-#			count += 1
-#		end
-#
-
-
-# ar = ['one','two','three','four','five']
-# ar.max_by(&:length) # => "three"
-
-#	return longest_handle
-#end
-
-
-
 def perform
 	list_of_journalists = initial_list
 #	total_handle = number_handle(list_of_journalists)
@@ -202,7 +185,7 @@ def perform
 #	sort_size(list_of_journalists)
 #	position(list_of_journalists)
 	repartition(list_of_journalists)
-# 	count_length(list_of_journalists, 5)
+# 	count_length(list_of_journalists, 5) ---------- permet de tester la méthode avec la longueur 5
 end
 
 perform
