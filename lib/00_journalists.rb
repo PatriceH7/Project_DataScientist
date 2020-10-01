@@ -141,26 +141,41 @@ end
 # (nombre de handle avec 1 caractère, nombre de handle avec 2 caractères, nombre de handle avec 3 caractères, etc)
 
 
-#def count_length(list_of_journalists, given_size)
+def count_length(list_of_journalists, given_size) # --------- méthode permettant de calculer le nombre d'éléments d'une liste ayant une longueur donnée
 
-#	count_given_size = 0
-#	list_of_journalists.each do |handle|
-#		if handle.length == given_size
-#			count_given_size += 1
-#		end
-#	return count_given_size 
-#
-#end
+	count_given_size = 0
+	list_of_journalists.each do |handle|
+		if (handle.length - 1) == given_size
+			count_given_size += 1
+		else
+		end
+	end
+#	puts " Le nombre de handles de #{given_size} caractères est #{count_given_size}" ------ permet de tester que le compte à une taille particulirère fonctionne
+
+	return count_given_size 
+end
 
 
+def repartition(list_of_journalists)
 
-#def repartition(list_of_journalists)
+	longest_handle = list_of_journalists.max_by(&:length)
+	puts "Le handle le plus long est : #{longest_handle}"
 
-#	longest_handle = list_of_journalists.max_by(&:length)
-#	puts "le plus long handle est : #{longest_handle}"
-#
-#	size_of_longest = longest_handle.length
-#
+	size_of_longest = longest_handle.length - 1
+
+	quantity = 0
+	size = size_of_longest
+
+	while(size > 0) do
+		quantity = count_length(list_of_journalists, size)
+		puts "Le nombre d'éléments de longueur = #{size} est : #{quantity}"
+		size = size - 1
+	end
+
+	return
+end
+
+
 #	count = 0
 #	list_of_journalists.each do |handle|
 #		if handle.length == size_of_longest
@@ -169,14 +184,11 @@ end
 #
 
 
-
 # ar = ['one','two','three','four','five']
 # ar.max_by(&:length) # => "three"
 
-	return longest_handle
-end
-
-
+#	return longest_handle
+#end
 
 
 
@@ -188,8 +200,9 @@ def perform
 #	starts_capital(list_of_journalists)
 #	sort_alphabetical(list_of_journalists)
 #	sort_size(list_of_journalists)
-	position(list_of_journalists)
-#	repartition(list_of_journalists)
+#	position(list_of_journalists)
+	repartition(list_of_journalists)
+# 	count_length(list_of_journalists, 5)
 end
 
 perform
